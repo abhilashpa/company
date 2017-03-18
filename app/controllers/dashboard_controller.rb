@@ -8,7 +8,7 @@ class DashboardController < AuthenticatedController
   private
   def check_company_registration
     if current_user.company_detail_users.blank?
-      redirect_to "/college_registration"
+      redirect_to "/company_registration"
     end
   end
 end

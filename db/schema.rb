@@ -17,13 +17,14 @@ ActiveRecord::Schema.define(version: 20170108131540) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_cities_on_name", unique: true, using: :btree
     t.index ["state_id"], name: "index_cities_on_state_id", using: :btree
   end
 
   create_table "company_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.integer  "no_of_employees"
-    t.bigint   "annual_revenue"
+    t.string   "name",            null: false
+    t.integer  "no_of_employees", null: false
+    t.bigint   "annual_revenue",  null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(version: 20170108131540) do
   create_table "headquater_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "company_detail_id"
     t.integer  "pincode_id"
-    t.string   "address1",          limit: 1000
+    t.string   "address1",          limit: 1000, null: false
     t.string   "address2",          limit: 1000
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170108131540) do
   end
 
   create_table "pincodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "pincode"
     t.integer  "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

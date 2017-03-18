@@ -17,3 +17,29 @@
 .register-card {
     background-color: #f7d48f
 }
+.registration-company-details-form {
+    max-width: none;
+}
+
+.registration-company-details-form .btn {
+    margin-left: 35%;
+    width: 30%;
+}
+
+.registration-company-details-form .centered-label {
+    margin: 35px auto 0px auto;
+    width: 100%;
+    text-align: center;
+}
+
+.registration-company-details-form .label-section-beginning {
+    margin-top: 0px;
+}
+
+
+.middled-row {
+    float:none;
+    margin: 0 auto;
+}
+
+

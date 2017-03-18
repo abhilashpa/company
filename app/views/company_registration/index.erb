@@ -1,0 +1,48 @@
+<div class="wrapper">
+    <div class="register-background">
+        <div class="filter-black">
+            <div class="container">
+                <div class="row">
+                    <div class="middled-row col-md-10">
+                        <div class="register-card registration-company-details-form">
+                              <%= form_tag("/company_registration/save", method: "post",class: "new_user") do %>
+                                <h3 class="title">Please take a moment to fill in the company details</h3>
+                                  <%= label_tag :company_name %><br />
+                                  <%= text_field_tag :company_name, nil,class: "form-control" %>
+                                  <%= label_tag :no_of_employees %><br />
+                                  <%= text_field_tag :no_of_employees, nil,class: "form-control" %>
+                                  <%= label_tag  :annual_revenue%><br />
+                                  <%= text_field_tag :annual_revenue, nil,class: "form-control" %>
+                                  <%= label_tag  :head_quaters%><br />
+                                  <%= text_field_tag :head_quaters, nil,class: "form-control" %>
+
+
+                                  <%= label_tag  :address,nil,class: "centered-label"%><br />
+                                  <%= label_tag  :address_line_1, nil,class: "label-section-beginning"%><br />
+                                  <%= text_field_tag :address_line_1, nil,class: "form-control" %>
+                                  <%= label_tag  :address_line_2%><br />
+                                  <%= text_field_tag :address_line_2, nil,class: "form-control" %>
+                                  <%= label_tag  :town_city, "Town / City"%><br />
+                                  <%= text_field_tag :town_city, nil,class: "form-control" %>
+                                  <%= label_tag  :pincode%><br />
+                                  <%= text_field_tag :pincode, nil,class: "form-control" %>
+                                  <%= label_tag  :state%><br />
+                                  <%= text_field_tag :state, nil,class: "form-control" %>
+                                  <%= label_tag  :country%><br />
+                                  <%= text_field_tag :country, "Service currently available only in India",class: "form-control",disabled: :true%>
+
+
+                                  <%= label_tag  :contact_details,nil,class: "centered-label"%><br />
+                                  <%= label_tag  :email_id,nil,class: "label-section-beginning"%><br />
+                                  <%= text_field_tag :email_id, nil,class: "form-control" %>
+                                  <%= label_tag  :landline_no%><br />
+                                  <%= text_field_tag :landline_no, nil,class: "form-control" %>
+                                  <button class="btn btn-success btn-block">Save</button>
+                              <% end %>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
