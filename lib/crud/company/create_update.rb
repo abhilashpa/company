@@ -7,7 +7,6 @@ module CRUD
         cd.annual_revenue = options[:annual_revenue]
         cd.no_of_employees = options[:no_of_employees]
         cd.save!
-        p cd
         cd
       end
 
@@ -48,7 +47,6 @@ module CRUD
       def register options
         ApplicationRecord.connection.transaction do
           cd = create_company_details options
-          p cd
           options[:company_detail_id] = cd.id
           create_company_detail_user options
           company_contact_details options
