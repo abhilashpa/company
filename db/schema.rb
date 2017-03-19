@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20170108131540) do
 
   create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "state_id"
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_cities_on_name", unique: true, using: :btree
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170108131540) do
     t.bigint   "annual_revenue",  null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["name"], name: "index_company_details_on_name", unique: true, using: :btree
   end
 
   create_table "company_details_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -38,14 +39,16 @@ ActiveRecord::Schema.define(version: 20170108131540) do
 
   create_table "contact_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "company_detail_id"
-    t.string   "email1"
+    t.string   "email1",            null: false
     t.string   "email2"
-    t.integer  "landline"
+    t.integer  "landline",          null: false
     t.integer  "hr_extension"
     t.bigint   "mobile_phone"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["company_detail_id"], name: "index_contact_details_on_company_detail_id", using: :btree
+    t.index ["email1"], name: "index_contact_details_on_email1", unique: true, using: :btree
+    t.index ["email2"], name: "index_contact_details_on_email2", unique: true, using: :btree
   end
 
   create_table "headquater_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -68,9 +71,10 @@ ActiveRecord::Schema.define(version: 20170108131540) do
   end
 
   create_table "states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_states_on_name", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
