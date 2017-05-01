@@ -2,7 +2,7 @@ var CampusConnect = CampusConnect || {};
 CampusConnect.Utilities = function () {
     var signOut = function (token) {
         console.log('signout');
-        $.ajax({url: "/users/sign_out", 
+        $.ajax({url: "/users/sign_out",
                 success: function (result) {
                     window.location.replace('/');
                     },
@@ -12,5 +12,5 @@ CampusConnect.Utilities = function () {
     };
     return {
         signOut: signOut
-    }
+    };
 }();

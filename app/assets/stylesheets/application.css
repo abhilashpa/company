@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require semantic_ui/semantic_ui
  */
+
 
 .register-card {
     background-color: #f7d48f
@@ -40,6 +42,10 @@
 .middled-row {
     float:none;
     margin: 0 auto;
+}
+
+.ui.button .auto-margin {
+    margin: auto !important;
 }
 
 

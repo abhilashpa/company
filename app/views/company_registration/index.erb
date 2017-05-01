@@ -1,48 +1,106 @@
-<div class="wrapper">
-    <div class="register-background">
-        <div class="filter-black">
-            <div class="container">
-                <div class="row">
-                    <div class="middled-row col-md-10">
-                        <div class="register-card registration-company-details-form">
-                              <%= form_tag("/company_registration/save", method: "post",class: "new_user") do %>
-                                <h3 class="title">Please take a moment to fill in the company details</h3>
-                                  <%= label_tag :company_name %><br />
-                                  <%= text_field_tag :company_name, nil,class: "form-control" %>
-                                  <%= label_tag :no_of_employees %><br />
-                                  <%= text_field_tag :no_of_employees, nil,class: "form-control" %>
-                                  <%= label_tag  :annual_revenue%><br />
-                                  <%= text_field_tag :annual_revenue, nil,class: "form-control" %>
-                                  <%= label_tag  :head_quaters%><br />
-                                  <%= text_field_tag :head_quaters, nil,class: "form-control" %>
-
-
-                                  <%= label_tag  :address,nil,class: "centered-label"%><br />
-                                  <%= label_tag  :address_line_1, nil,class: "label-section-beginning"%><br />
-                                  <%= text_field_tag :address_line_1, nil,class: "form-control" %>
-                                  <%= label_tag  :address_line_2%><br />
-                                  <%= text_field_tag :address_line_2, nil,class: "form-control" %>
-                                  <%= label_tag  :town_city, "Town / City"%><br />
-                                  <%= text_field_tag :town_city, nil,class: "form-control" %>
-                                  <%= label_tag  :pincode%><br />
-                                  <%= text_field_tag :pincode, nil,class: "form-control" %>
-                                  <%= label_tag  :state%><br />
-                                  <%= text_field_tag :state, nil,class: "form-control" %>
-                                  <%= label_tag  :country%><br />
-                                  <%= text_field_tag :country, "Service currently available only in India",class: "form-control",disabled: :true%>
-
-
-                                  <%= label_tag  :contact_details,nil,class: "centered-label"%><br />
-                                  <%= label_tag  :email_id,nil,class: "label-section-beginning"%><br />
-                                  <%= text_field_tag :email_id, nil,class: "form-control" %>
-                                  <%= label_tag  :landline_no%><br />
-                                  <%= text_field_tag :landline_no, nil,class: "form-control" %>
-                                  <button class="btn btn-success btn-block">Save</button>
-                              <% end %>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="ui middle aligned center aligned grid">
+  <div class="six wide column">
+    <div class="ui icon warning message hidden">
+      <i class="lock icon"></i>
+      <div class="content">
+        <div class="header">
+          Login failed!
         </div>
+        <p>You might have misspelled your username or password!</p>
+      </div>
     </div>
+    <h2 class="ui image header">
+    <div class="content">
+      Please take a moment to fill in the company details
+    </div>
+    </h2>
+    <%= form_tag("/company_registration/save", method: "post",class: "ui large form") do %>
+    <div class="ui   segment">
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :company_name, nil , placeholder: "Company Name"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :no_of_employees, nil , placeholder: "No of employees"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :annual_revenue, nil , placeholder: "Annual Revenue"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :head_quaters, nil , placeholder: "Head Quaters"%>
+        </div>
+      </div>
+      <div class="ui horizontal divider">
+        Address
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :address_line_1, nil , placeholder: "Address line 1"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :address_line_2, nil , placeholder: "Address line 2"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :town_city, nil , placeholder: "Town / City"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :pincode, nil , placeholder: "Pincode"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :state, nil , placeholder: "State"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :country, "Service currently available only in India" , placeholder: "Country",disabled:true%>
+        </div>
+      </div>
+      <div class="ui horizontal divider">
+        Contract details
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :email_id, nil , placeholder: "Email"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :landline_no, nil , placeholder: "Landline_no"%>
+        </div>
+      </div>
+        <button class="ui fluid large teal submit button">Save</button>
+         <div class="ui error message"></div>
+    </div>
+  <% end %>
+</div>
+</div>
+<script type="text/javascript">
+  CampusConnect.Login.Validation.completeRegistration();
+</script>
+
