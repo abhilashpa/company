@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   #User management
   devise_for :users, controllers: { sessions: 'users/sessions',registrations: 'users/registrations' }
+  devise_scope :user do
+    get '/users', to: 'users/registrations#new'
+  end
   match 'user_root' => 'dashboard#index', as: :user_root,via: :all
 
   #User interaction
   get '/', to: 'landing#index'
   get '/dashboard', to: 'dashboard#index'
+
 
   #Company registration
   get '/company_registration', to: 'company_registration#index'

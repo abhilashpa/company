@@ -35,8 +35,8 @@ CampusConnect.Login.Validation = function() {
                         prompt: 'Your password must be at least {ruleValue} characters'
                     }]
                 },
-                'user[confir_pass]': {
-                    'identifier': 'user_confirm_pass',
+                'user[confirm_pass]': {
+                    identifier: 'user_confirm_pass',
                     rules: [{
                         type: 'match[user_password]',
                         prompt: 'Passwords do not match'
@@ -122,7 +122,7 @@ CampusConnect.Login.Validation = function() {
                         prompt: 'Please enter the number only for pincode'
                     },{
                         type: 'exactLength[6]',
-                        prompt: 'Please enter a correct landline no'
+                        prompt: 'Please enter a correct pincode'
                     }]
                 },
                 'state': {
@@ -145,7 +145,7 @@ CampusConnect.Login.Validation = function() {
                         type: 'integer',
                         prompt: 'Please enter numbers only for landline no'
                     },{
-                        type: 'exactLength[11]',
+                        type: 'exactLength[8]',
                         prompt: 'Please enter a correct landline no'
                     }]
                 }
