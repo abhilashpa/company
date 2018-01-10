@@ -152,9 +152,39 @@ CampusConnect.Login.Validation = function() {
             }
         });
     };
+
+    var createOpening = function() {
+        $('.ui.large.form').form({
+            fields: {
+                'position': {
+                    identifier: 'position',
+                    rules: [{
+                        type: 'empty',
+                        prompt: 'Please enter the position'
+                    }]
+                },
+                'department': {
+                    identifier: 'department',
+                    rules: [{
+                        type: 'empty',
+                        prompt: 'Please enter the department'
+                    }]
+                },
+                'no_of_openings': {
+                    identifier: 'department',
+                    rules: [{
+                        type: 'empty',
+                        prompt: 'Please enter the number of openings'
+                    }]
+                }
+
+            }
+        });
+    };
     return {
         initial: initial,
         login: login,
-        completeRegistration :completeRegistration
+        completeRegistration :completeRegistration,
+        createOpening : createOpening
     };
 }();

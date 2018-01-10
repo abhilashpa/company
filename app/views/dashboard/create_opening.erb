@@ -1,0 +1,91 @@
+<div class="ui middle aligned center aligned grid">routes
+  <div class="six wide column">
+      <div class="ui icon warning message hidden">
+      <i class="lock icon"></i>
+      <div class="content">
+        <div class="header">
+          Login failed!
+        </div>
+        <p>You might have misspelled your username or password!</p>
+      </div>
+    </div>
+    <h2 class="ui image header">
+    <div class="content">
+      Fill in the openning details
+    </div>
+    </h2>
+    <%= form_tag("/save_openning", method: "post",class: "ui large form") do %>
+    <div class="ui   segment">
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :position, nil , placeholder: "Position"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :department, nil , placeholder: "Department"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :no_of_openings, nil , placeholder: "# Of Openings"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :opening_type, nil , placeholder: "Job Type"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :package_upper, nil , placeholder: "Package Upper Limit"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :package_lower, nil , placeholder: "Package Lower Limit"%>
+        </div>
+      </div>
+      <div class="ui horizontal divider">
+        Contact Details
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :email_1, nil , placeholder: "Email"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :phone_1, nil , placeholder: "Phone Number"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :email_2, nil , placeholder: "Alternate Email"%>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <%= text_field_tag :phone_2, nil , placeholder: "Aleternate Phone Number"%>
+        </div>
+      </div>
+        <button class="ui fluid large teal submit button">Save</button>
+         <div class="ui error message"></div>
+    </div>
+  <% end %>
+</div>
+</div>
+<script type="text/javascript">
+  CampusConnect.Login.Validation.createOpening();
+</script>
+

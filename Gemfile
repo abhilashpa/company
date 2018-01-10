@@ -26,6 +26,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails'
+gem 'elasticsearch', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

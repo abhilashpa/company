@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108131540) do
+ActiveRecord::Schema.define(version: 20170815141242) do
 
   create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "state_id"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 20170108131540) do
     t.datetime "updated_at",                     null: false
     t.index ["company_detail_id"], name: "index_headquater_addresses_on_company_detail_id", using: :btree
     t.index ["pincode_id"], name: "index_headquater_addresses_on_pincode_id", using: :btree
+  end
+
+  create_table "openings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "position",       null: false
+    t.string  "department",     null: false
+    t.integer "no_of_openings", null: false
+    t.string  "opening_type",   null: false
+    t.bigint  "package_upper",  null: false
+    t.bigint  "package_lower",  null: false
+    t.string  "location",       null: false
   end
 
   create_table "pincodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

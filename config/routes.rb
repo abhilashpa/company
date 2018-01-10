@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
 
 
+  #Create opennings
+  get '/create_opening', to: 'dashboard#create_opening'
+  post '/save_opening', to: 'dashboard#save_opening'
+
+
   #Company registration
   get '/company_registration', to: 'company_registration#index'
   post '/company_registration/save', to: 'company_registration#save'
