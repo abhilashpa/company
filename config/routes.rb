@@ -20,5 +20,9 @@ Rails.application.routes.draw do
   get '/company_registration', to: 'company_registration#index'
   post '/company_registration/save', to: 'company_registration#save'
 
+# Dashoboard API's
+  get 'dashboard/departments'
+  get 'dashboard/cities'
+  get 'dashboard/search_college_drives'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

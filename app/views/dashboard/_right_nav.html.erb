@@ -1,4 +1,48 @@
-<a href="#" class="item"><%=current_user.firstname%></a>
-<a href="/create_opening" class="item">Create Opening</a>
-<a href="#" class="item" onclick="CampusConnect.Utilities.signOut('<%=form_authenticity_token%>')">Sign Out</a>
+ <div class="ui fixed menu">
+  <div class="ui container">
+    <div class="left menu">
+      <a class="launch icon item" onclick="$('.ui.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');">
+        <i class="content icon"></i>
+      </a>
+      <a href="#" class="header item">
+        <h3>CampusConnect</h3>
+      </a>
+    </div>
+    <div class="right menu">
+      <div class="ui search" style="padding-top:2.5%;padding-right:10px;">
+        <div class="ui icon input">
+          <input class="prompt search-bar" type="text" placeholder="Search here..." style="width:565px;">
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
+      </div>
+      <a href="/create_opening" class="item">Create Opening</a>
+      <div  style="max-width: 150px">
+        <div class="ui icon top right dropdown">
+          <p id="notification-count" style="position:  absolute;top: 20px;left: 8px;font-size: 15px;display:  block;color:  white;background-color: green;padding: 0px 5px 0px 5px;border-radius:  5px;">
 
+          </p>
+          <i class="bell icon notification-icon" style="color:gold;font-size: 30px;margin: 35px 0px 20px 0px;cursor: pointer"></i>
+          <div class="menu" id="notification-container">
+          </div>
+        </div>
+      </div>
+      <div class="ui right dropdown mini item">
+        <label href="#" class="item"><%=current_user.firstname%></label>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item"><a href="/users/profile">Profile</a> <i class="user icon" style="float:right"></i></div>
+          <div class="item">Settings <i class="settings icon" style="float:right"></i></div>
+          <div class="item" ><a href="/user_help"> Help</a><i class="help icon" style="float:right"></i></div>
+          <div class="item">
+            <a href="#" onclick="CampusConnect.Utilities.signOut('<%=form_authenticity_token%>')">Sign Out</a>
+            <i class="sign out icon" style="float:right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+$('.ui.dropdown').dropdown();
+</script>

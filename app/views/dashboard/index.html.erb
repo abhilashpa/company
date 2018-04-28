@@ -1,4 +1,45 @@
-<div class="wrapper">
+<%= render :partial=>"layouts/sidebar" %>
+<!-- <div class="wrapper">
     <div class="register-background">
     </div>  
+</div> -->
+<div class="main-content container pusher" style="padding-top:5%;height: 87%;overflow:auto" id="scrollItem">
+  <div class="pusher1" style="height: 100%">
+    <div class="ui grid" style="height: 100%">
+      <div class="four wide column verticalLine">
+        <%= render partial: "filters"%>
+      </div>
+      <div id="cardsContainer" class="nine wide column" style="">
+        <!--  grid to sort start here -->
+        <div class="ui grid">
+          <div class="three column row">
+            <div class="right floated column">
+              <div  class="sort-options" style="padding-left: 12%;">
+                <select class="sort ui dropdown" >
+                  <option value="">Sort by</option>
+                  <option value="">Default</option>
+                  <option value="no_of_openings">No of openings</option>
+                  <option value="package_upper">Package</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  grid to sort ends here -->
+        <div class="ui  divider"></div>
+        <div id="cards-container">
+        </div>
+        <div class="ui centered inline loader" id="dashboard-cards-loader" style="position:relative;top:-50px;"></div>
+      </div>
+      <div class="three wide column">
+        <!-- kept for ads -->
+      </div>
+    </div>
+  </div>
 </div>
+<script type="text/javascript">
+$('.ui.dropdown').dropdown();
+    CampusConnect.Dashboard.init();
+    // CampusConnect.Notifications.init();
+</script>
+

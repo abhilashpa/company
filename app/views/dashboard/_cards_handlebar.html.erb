@@ -1,0 +1,36 @@
+<script id="cards-template" type="text/x-handlebars-template">
+<div class="ui cards">
+  {{#each campus_drives}}
+    
+  <div class="card">
+    <div class="middle aligned content">
+      <img class="left floated small ui image" src="/images/pramata.png" style="margin-bottom:0px;border: 1px solid rgba(52,73,94,.44);padding: 4px;max-height:120px">
+      <div class="right floated">
+        <br/><br/>
+        
+      </div>
+      <div class="header">
+        {{college.college_name}}        
+      </div>
+      <div class="meta">
+        {{campus_drive.location.name}}
+      </div>
+      <div class="other-details">
+        <p><strong>Job Role:</strong>  &nbsp;{{campus_drive.department}}</p>
+        <p><strong>Students Batch:</strong>  &nbsp;{{campus_drive.no_of_students}}</p>
+        <p><strong>Main Campus:</strong>  &nbsp;{{college.university_name}}</p>
+        <p><strong>Approved by</strong>  &nbsp;{{college.approved_by}}</p>
+      </div>
+    </div>
+    <div class="extra content">
+      <a><i class="users icon"></i>{{campus_drive.no_of_students}} + Members Passed/Year</a>
+      <a class="ui right floated primary button" id="view-details" href="dashboard/company_details?d_id={{drive_id}}">
+        View Details
+      </a>
+    </div>
+  </div>
+
+  {{/each}}
+  
+</div>
+</script>

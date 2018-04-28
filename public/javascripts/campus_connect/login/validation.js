@@ -145,7 +145,7 @@ CampusConnect.Login.Validation = function() {
                         type: 'integer',
                         prompt: 'Please enter numbers only for landline no'
                     },{
-                        type: 'exactLength[8]',
+                        type: 'exactLength[11]',
                         prompt: 'Please enter a correct landline no'
                     }]
                 }
