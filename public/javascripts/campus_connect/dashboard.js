@@ -96,9 +96,9 @@ CampusConnect.Dashboard = function () {
             success: function(response){
                 var html = cardsTemplate(response);
                 $("#cards-container").html(html);
-                // setSortingDropdown();
+                    setSortingDropdown();
                 // setSearchBar();
-                // setfilterOnRefresh();
+                    setfilterOnRefresh();
                 // TODO
                 // registerCardsScrollBottom();
             },
