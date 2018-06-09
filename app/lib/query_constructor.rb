@@ -1,11 +1,11 @@
 class QueryConstructor
 		SIZE = 4
-
+		SORT_MAPPING = {"drive_date"=>"date_of_drive","no_of_students"=>"no_of_students","post_date"=>"posted_date"}
 		def initialize(keyword=nil,from=0,sort_by=nil,loc_filter=nil,dept_filter=nil,openings_search_fields=nil,companies_search_fields=nil)
 			@body = {from: from, size: SIZE, query: { bool: {should: []} } }
 			@openings_search_fields = ["address", "department", "location.name"]
 			@college_search_fields = ["city", "college_name", "university_name"]
-			@sort_by = sort_by if sort_by.present?
+			@sort_by = SORT_MAPPING[sort_by.to_s] if sort_by.present?
 			@locations = loc_filter if loc_filter.present?
 			@dept =  dept_filter if dept_filter.present?
 			@companies_search_fields = companies_search_fields if companies_search_fields.present?
@@ -70,5 +70,14 @@ class QueryConstructor
 				}
 			}
 			return body
+		end
+
+		def sort_by
+				@body[:sort] = [ {
+		      		:"#{@sort_by}"=> {
+		        		:order=> "desc"
+		      		}
+		    	}
+		    ]
 		end
 end

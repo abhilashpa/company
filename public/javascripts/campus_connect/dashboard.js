@@ -107,7 +107,115 @@ CampusConnect.Dashboard = function () {
             }
         });
     };
+    var setSortingDropdown = function(){
+        var sort_option = getUrlParameter("sort_option");
+        $(".ui.dropdown").dropdown("set selected",sort_option);
+    };
 
+    var getUrlParameter = function(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'), sParameterName, i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+
+    var removeSortOption = function(params,item){
+        params = decodeURI(params);
+        var p = params.split("&");
+        for(i = 0; i< p.length;i++){
+            if(p[i].includes(item)){
+                p.splice(i,1);
+            }
+        }
+
+        return encodeURI(p.join("&"));
+    };
+
+    var constructParams = function(){
+        var params = "";
+        var q = getUrlParameter("q");
+        if(q !== undefined && q.length>0){
+            params = params+"?q="+q;
+        }
+        return params;
+    };
+
+    var sorted_cards =function(sort_option){
+        var loc_filter = getUrlParameter("l[]");
+        var params = "";
+        if(loc_filter === undefined || loc_filter ===""){
+            params = constructParams();
+        }else{
+            params = window.location.search.substring(0);
+            params = removeSortOption(params,"sort_option");
+        }
+
+        if(sort_option !==undefined && sort_option !== ""){
+            if(params === undefined || params === "" ){
+                params = params + "?sort_option="+sort_option;
+            }else{
+                params = params + "&sort_option="+sort_option;
+            }
+        }
+        window.history.pushState("object or string", "Title", params);
+        cards(sort_option);
+    };
+
+    var addFilter = function(){
+        $(".sort.ui.dropdown").dropdown("restore defaults");
+        var params = addCityFilter();
+        var filter_values ="";
+        var department_filter_list = filterList("filter_department");
+        if(department_filter_list !== undefined && department_filter_list!== "" && department_filter_list.length > 0){
+            for(i =0;i< department_filter_list.length;i++){
+                if((params === undefined || params === "") && filter_values === "" ){
+                    filter_values = filter_values + "?d[]="+department_filter_list[i];
+                }else{
+                    filter_values = filter_values + "&d[]="+department_filter_list[i];
+                }
+            }
+        }
+        params = params + encodeURI(filter_values);
+        if(params === undefined || params ===""){
+            window.history.pushState("object or string", "Title", "user_root");
+        }else{
+            window.history.pushState("object or string", "Title", params);
+        }
+        cards();
+    };
+    var filterList = function(domId){
+        var selected = [];
+        $("#"+domId+' .ui.checkbox input:checked').each(function() {
+            selected.push($(this).attr('name'));
+        });
+        return jQuery.unique(selected);
+    };
+    
+    var addCityFilter = function(){
+        var params = constructParams();
+        var filter_values = "";
+        var cities_filter_list = filterList("filter_cities");
+        if(cities_filter_list === undefined || cities_filter_list === "" || cities_filter_list.length === 0){
+            return params;
+        }
+        for(i =0;i< cities_filter_list.length;i++){
+            if((params === undefined || params === "") && filter_values === "" ){
+                filter_values = filter_values + "?l[]="+cities_filter_list[i];
+            }else{
+                filter_values = filter_values + "&l[]="+cities_filter_list[i];
+            }
+        }
+        params = params + encodeURI(filter_values);
+        return params;
+        // window.history.pushState("object or string", "Title", params);
+        // CampusConnect.Dashboard.cards();
+    };
 
 
     var init =function(){
@@ -119,13 +227,12 @@ CampusConnect.Dashboard = function () {
             filterCities();
             filterDepartment();
             $(".ui.checkbox").change(function(){
-                // TODO
-              // addFilter();
+              addFilter();
             });
             $('.sort.ui.dropdown').dropdown({
               onChange: function(value, text, $selectedItem) {
                 // TODO
-                // sorted_cards(value);
+                sorted_cards(value);
               }
             });
             $(".prompt.search-bar").keydown(function(event){
